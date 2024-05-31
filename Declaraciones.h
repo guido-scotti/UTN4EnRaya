@@ -25,4 +25,8 @@
 
     char ingresoJugador2(char matrizTablero[][7],int nfilas, int ncol, string);
 
+    void mostrarCartelVueltaMenu();
+
+    char opcionesMenu(char ingresoMenu);
+
 #endif // DECLARACIONES_H_INCLUDED
