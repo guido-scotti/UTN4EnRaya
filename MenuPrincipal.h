@@ -31,8 +31,10 @@ bool mostrarMenuPrincipal (char matrizTablero[][7],int nfilas, int ncol)
     rlutil::locate(1, 14);
     cout<<"========================================================================================================================"<<endl;
     cout<<endl;
-    rlutil::locate(59, 16);
-    cout<<"- ";
+    rlutil::locate(58, 16);
+    cout<<R<<"-> "<<RESET;
+    rlutil::locate(62, 16);
+    cout<<R<<" <-"<<RESET;
     rlutil::locate(61, 16);
     cin>>ingresoMenu;
     system("cls");
@@ -43,26 +45,17 @@ bool mostrarMenuPrincipal (char matrizTablero[][7],int nfilas, int ncol)
         switch(ingresoMenu) //INICIO DEL SWITCH DE OPCIONES
         {
         case '1': //INICIAR JUEGO
-
             system ("cls");
-
             cargarMatrizCuadricula(matrizTablero, nfilas, ncol);
-
             logicaDelJuego(matrizTablero, nfilas, ncol);
-
             system ("cls");
-
             return 1;
-
             break;
 
         case '2': //MOSTRAR REGLAS Y OBJETIVOS
-
             mostrarReglas();
-
             volverAlMenu();
             system ("cls");
-
             break;
 
         case '0': //CERRAR EL JUEGO
@@ -71,12 +64,9 @@ bool mostrarMenuPrincipal (char matrizTablero[][7],int nfilas, int ncol)
             break;
 
         default:
-
             ingresoIncorrecto();
-
             break;
         }
-
 }
 
 #endif // MENUPRINCIPAL_H_INCLUDED
