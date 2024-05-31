@@ -17,9 +17,11 @@ using namespace std;
 #include "VolverOSalir.h"
 #include "ingresoJugadores.h"
 #include "Logica.h"
+#include "vueltaAlMenuAnimacion.h"
 
 int main()
 {
+
     rlutil::setBackgroundColor(rlutil::BLACK); //FONDO NEGRO
     rlutil::setColor(rlutil::WHITE); //FONDO BLANCO
 
