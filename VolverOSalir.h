@@ -20,7 +20,7 @@ bool volverAlMenu ()
     switch(ingresoMenu)
     {
     case '1':
-        mostrarAnimacionbienvenida();
+        mostrarCartelVueltaMenu();
         return 1;
         break;
 
@@ -34,3 +34,4 @@ bool volverAlMenu ()
 
 
 #endif // VOLVEROSALIR_H_INCLUDED
+
