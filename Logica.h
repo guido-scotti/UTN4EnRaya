@@ -7,7 +7,6 @@ void logicaDelJuego(char matrizTablero[][7],int nfilas, int ncol)
     string jugador1;
     string jugador2;
     pedirNombres(&jugador1, &jugador2);
-
     int contadorFichasSeguidasO=1;
     int contadorFichasSeguidasX=1;
     bool banderaCorte = 0;
@@ -29,7 +28,7 @@ void logicaDelJuego(char matrizTablero[][7],int nfilas, int ncol)
                 {
                     rlutil::setColor(rlutil::GREEN);
                     rlutil::locate(45,18);
-                    cout<<"¡Felicitaciones"<<jugador1<<", has ganado!"<<endl;
+                    cout<<"¡Felicitaciones "<<jugador1<<", has ganado!"<<endl;
                     cout<<endl;
                     rlutil::setColor(rlutil::WHITE);
                     rlutil::anykey();
@@ -43,7 +42,7 @@ void logicaDelJuego(char matrizTablero[][7],int nfilas, int ncol)
                 {
                     rlutil::setColor(rlutil::GREEN);
                     rlutil::locate(45,18);
-                    cout<<"¡Felicitaciones"<<jugador1<<", has ganado!"<<endl;
+                    cout<<"¡Felicitaciones "<<jugador1<<", has ganado!"<<endl;
                     cout<<endl;
                     rlutil::setColor(rlutil::WHITE);
                     rlutil::anykey();
@@ -58,7 +57,7 @@ void logicaDelJuego(char matrizTablero[][7],int nfilas, int ncol)
                 {
                     rlutil::setColor(rlutil::GREEN);
                     rlutil::locate(45,18);
-                    cout<<"¡Felicitaciones"<<jugador1<<", has ganado!"<<endl;
+                    cout<<"¡Felicitaciones "<<jugador1<<", has ganado!"<<endl;
                     cout<<endl;
                     rlutil::setColor(rlutil::WHITE);
                     rlutil::anykey();
@@ -72,7 +71,7 @@ void logicaDelJuego(char matrizTablero[][7],int nfilas, int ncol)
                 {
                     rlutil::setColor(rlutil::GREEN);
                     rlutil::locate(45,18);
-                    cout<<"¡Felicitaciones"<<jugador1<<", has ganado!"<<endl;
+                    cout<<"¡Felicitaciones "<<jugador1<<", has ganado!"<<endl;
                     cout<<endl;
                     rlutil::setColor(rlutil::WHITE);
                     rlutil::anykey();
@@ -80,28 +79,30 @@ void logicaDelJuego(char matrizTablero[][7],int nfilas, int ncol)
                     banderaCorte=1;
                 }
 
-
             }
             break;
         }
 
-        int cont=0;
         //empate
+       int contEmpate=0;
         for (int i=0; i<nfilas; i++)
             {
                 for (int x=0; x<ncol; x++)
                 {
-                   if(matrizTablero[i][x]=='-') {
-                    cont++;
-                   }
+                   if(matrizTablero[i][x]=='-')
+                    {
+                    contEmpate++;
+                    }
                 }
             }
-            if (cont==0)    {
+            if (contEmpate==0)
+                {
                 banderaCorte=1;
-            }
-
-            cout<<"hubo un empate"<<endl;
-
+                rlutil::setColor(rlutil::CYAN);
+                rlutil::locate(45,18);
+                cout<<"¡Han empatado!, se nota que son competitivos..."<<endl;
+                rlutil::setColor(rlutil::WHITE);
+                }
 
         //instruccion para que al ganar el jugador 1 no le de el turno al jugador 2
         if (banderaCorte!=1)
@@ -117,7 +118,7 @@ void logicaDelJuego(char matrizTablero[][7],int nfilas, int ncol)
                     {
                         rlutil::setColor(rlutil::GREEN);
                         rlutil::locate(45,18);
-                        cout<<"¡Felicitaciones"<<jugador2<<", has ganado!"<<endl;
+                        cout<<"¡Felicitaciones "<<jugador2<<", has ganado!"<<endl;
                         cout<<endl;
                         rlutil::setColor(rlutil::WHITE);
                         rlutil::anykey();
@@ -130,13 +131,12 @@ void logicaDelJuego(char matrizTablero[][7],int nfilas, int ncol)
                     {
                         rlutil::setColor(rlutil::GREEN);
                         rlutil::locate(45,18);
-                        cout<<"¡Felicitaciones"<<jugador2<<", has ganado!"<<endl;
+                        cout<<"¡Felicitaciones "<<jugador2<<", has ganado!"<<endl;
                         cout<<endl;
                         rlutil::setColor(rlutil::WHITE);
                         rlutil::anykey();
                         cout<<endl;
                         banderaCorte=1;
-
                     }
 
                     //determina si hubo 4 en raya en Diagonal
@@ -145,7 +145,7 @@ void logicaDelJuego(char matrizTablero[][7],int nfilas, int ncol)
                     {
                         rlutil::setColor(rlutil::GREEN);
                         rlutil::locate(45,18);
-                        cout<<"¡Felicitaciones"<<jugador2<<", has ganado!"<<endl;
+                        cout<<"¡Felicitaciones "<<jugador2<<", has ganado!"<<endl;
                         cout<<endl;
                         rlutil::setColor(rlutil::WHITE);
                         rlutil::anykey();
@@ -159,43 +159,37 @@ void logicaDelJuego(char matrizTablero[][7],int nfilas, int ncol)
                     {
                         rlutil::setColor(rlutil::GREEN);
                         rlutil::locate(45,18);
-                        cout<<"¡Felicitaciones"<<jugador2<<", has ganado!"<<endl;
+                        cout<<"¡Felicitaciones "<<jugador2<<", has ganado!"<<endl;
                         cout<<endl;
                         rlutil::setColor(rlutil::WHITE);
                         rlutil::anykey();
                         cout<<endl;
                         banderaCorte=1;
                     }
+
                 }
 
                 break;
             }
         }
 
-        cont=0;
-        //empate
+        //CASO DE EMPATE
         for (int i=0; i<nfilas; i++)
             {
                 for (int x=0; x<ncol; x++)
                 {
-                   if(matrizTablero[i][x]=='-') {
-                    cont++;
-                   }
-                }
             }
-            if (cont==0)    {
+            if (contEmpate==0)
+                {
                 banderaCorte=1;
-            }
-
-            cout<<"hubo un empate"<<endl;
+                rlutil::setColor(rlutil::CYAN);
+                rlutil::locate(45,18);
+                cout<<"¡Han empatado!, se nota que son competitivos..."<<endl;
+                rlutil::setColor(rlutil::WHITE);
+                }
     }
 
-
-
-
-
     volverAlMenu();
-
 }
 
 
